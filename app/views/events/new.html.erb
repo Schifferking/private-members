@@ -1,0 +1,13 @@
+<%= form_with model: @event do |form| %>
+<% @event.event_date = Date.current %>
+  <%= form.label(:name, "event name:") %>
+  <%= form.text_field(:name, placeholder: "Graduation party") %>
+  <%= form.label(:event_date, "event date:") %>
+  <%= form.datetime_local_field :event_date %>
+  <!--
+  <%= form.week_field(:event_date) %>
+  -->
+  <%= form.label(:location, "location:") %>
+  <%= form.text_field(:location, placeholder: "John's house") %>
+  <%= form.submit %>
+<% end %>
