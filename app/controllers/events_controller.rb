@@ -7,7 +7,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(params_required)
-    @creator = @event.build_creator
+    @event.creator = @event.build_creator(id: current_user.id)
+    if @event.save
+      redirect_to action: 'index'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def index
@@ -17,6 +22,6 @@ class EventsController < ApplicationController
   private
 
   def params_required
-    params.require(:event).permit(:name, :event_date, :location)
+    params.require(:event).permit(:name, :event_date, :location, :creator_id)
   end
 end
