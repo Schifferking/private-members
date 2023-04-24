@@ -2,6 +2,8 @@
 
 <ul>
   <% @user.events.each do |event| %>
-    <li><%= event.title %></li>
+    <li>
+      <%= link_to event.name, "/events/#{event.id}" %>
+    </li>
   <% end %>
 </ul>

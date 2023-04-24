@@ -9,6 +9,8 @@
 
 <ul>
   <% @events.each do |event| %>
-    <li><%= event.name %></li>
+    <li>
+      <%= link_to event.name, "events/#{event.id}" %>
+    </li>
   <% end %>
 </ul>
