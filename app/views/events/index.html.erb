@@ -7,8 +7,19 @@
 
 <h1>Events created</h1>
 
+<h2>Past events</h2>
+
 <ul>
-  <% @events.each do |event| %>
+  <% @past_events.each do |event| %>
+    <li>
+      <%= link_to event.name, "events/#{event.id}" %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Future events</h2>
+<ul>
+  <% @future_events.each do |event| %>
     <li>
       <%= link_to event.name, "events/#{event.id}" %>
     </li>
