@@ -1,3 +1,9 @@
+<%= link_to "Home", "/" %>
+<%= link_to "My events", "/users/#{current_user.id}"%>
+<%= link_to "Create an event", "/events/new"%>
+<%= link_to "Attend an event", "/user_events/new"%>
+<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+
 <h1>Event details</h1>
 
 <h2>Title</h2>

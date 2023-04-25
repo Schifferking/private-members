@@ -1,3 +1,10 @@
+<%= link_to "Home", "/" %>
+<% if user_signed_in? %> 
+  <%= link_to "My events", "/users/#{current_user.id}"%>
+  <%= link_to "Create an event", "/events/new"%>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+<% end %>
+
 <!-- Use a form with a list of options where each option is the event name
      Also add the submit button
      Later, add a condition to display only future events
