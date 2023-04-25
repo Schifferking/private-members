@@ -11,3 +11,10 @@
 
 <h3>Date</h3>
 <p><%= @event.event_date %></p>
+
+<h4>Attendees<h4>
+<ul>
+  <% @event.attendees.each do |attendee| %>
+  <li><%= link_to attendee.email, "/users/#{attendee.id}" %></li>
+  <% end %>
+</ul>
