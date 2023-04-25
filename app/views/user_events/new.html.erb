@@ -1,0 +1,11 @@
+<!-- Use a form with a list of options where each option is the event name
+     Also add the submit button
+     Later, add a condition to display only future events
+-->
+<%= form_with model: @user_event do |form| %>
+  <% @events.each do |event| %>
+    <%= form.label(:event, event.name) %>
+    <%= form.radio_button(:event, event.id) %>
+  <% end %>
+  <%= form.submit "I want to attend this event"%>
+<% end %>
